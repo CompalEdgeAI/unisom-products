@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CompalEdgeAI | UniSOM-S01 & UniSOM-P01</title>
   <meta name="description" content="UniSOM-S01 and UniSOM-P01 product overview: positioning, highlights, use cases, and spec summary." />
-  <link rel="stylesheet" href="/unisom-products/assets/style.css?v=4">
+
+  <!-- Cache-buster: bump v= when you update assets -->
+  <link rel="stylesheet" href="/unisom-products/assets/style.css?v=6">
 </head>
 
 <body>
@@ -90,7 +92,7 @@
         <div class="section-head">
           <h2 data-i18n="compare_title">Quick Comparison</h2>
           <p class="muted" data-i18n="compare_note">
-            This is a marketing summary. Replace placeholders with your publishable specs (TOPS, RAM/Storage, I/O, temperature, OS, etc.).
+            Key specifications summary (based on current configuration).
           </p>
         </div>
 
@@ -99,35 +101,55 @@
             <thead>
               <tr>
                 <th data-i18n="compare_th_item">Item</th>
-                <th>UniSOM-S01</th>
                 <th>UniSOM-P01</th>
+                <th>UniSOM-S01</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td data-i18n="compare_row_pos_item">Positioning</td>
-                <td data-i18n="compare_row_pos_s01">Entry–mid Edge AI / cost-performance</td>
-                <td data-i18n="compare_row_pos_p01">Mid–high Edge AI / multi-workload compute</td>
+                <td data-i18n="compare_item_platform">Platform / AI Compute</td>
+                <td>Snapdragon X (X1-26-100), <b>45 TOPS</b></td>
+                <td>Dragonwing QCS6490, <b>12 TOPS</b></td>
               </tr>
               <tr>
-                <td data-i18n="compare_row_adv_item">Key Advantage</td>
-                <td data-i18n="compare_row_adv_s01">Low power, mass-production friendly, fast adoption</td>
-                <td data-i18n="compare_row_adv_p01">Higher AI headroom, scalability, advanced use cases</td>
+                <td data-i18n="compare_item_memory">Main Memory</td>
+                <td>16GB LPDDR5x</td>
+                <td>16GB LPDDR5</td>
               </tr>
               <tr>
-                <td data-i18n="compare_row_uc_item">Typical Use</td>
-                <td data-i18n="compare_row_uc_s01">Smart meeting rooms, IFPD/IWB, single-stream analytics</td>
-                <td data-i18n="compare_row_uc_p01">Multi-stream vision, smart retail analytics, edge GenAI/agents</td>
+                <td data-i18n="compare_item_storage">Storage</td>
+                <td>256GB SSD</td>
+                <td>128GB UFS</td>
               </tr>
               <tr>
-                <td data-i18n="compare_row_sw_item">Software</td>
-                <td data-i18n="compare_row_sw_s01">Windows / Linux (project-based), ONNX/TFLite/QNN deploy</td>
-                <td data-i18n="compare_row_sw_p01">Windows / Linux (project-based), NPU acceleration, multi-model</td>
+                <td data-i18n="compare_item_connectivity">Connectivity</td>
+                <td>Wi-Fi 6</td>
+                <td>Wi-Fi 6</td>
               </tr>
               <tr>
-                <td data-i18n="compare_row_deliver_item">Delivery</td>
-                <td data-i18n="compare_row_deliver_s01">Module/platform + reference design + integration service</td>
-                <td data-i18n="compare_row_deliver_p01">Module/platform + reference design + integration service</td>
+                <td data-i18n="compare_item_os">Operating System</td>
+                <td>Windows 11 IoT Enterprise</td>
+                <td>Windows 11 IoT Enterprise</td>
+              </tr>
+              <tr>
+                <td data-i18n="compare_item_thermal">Thermal Solution</td>
+                <td>Active FAN cooler</td>
+                <td>Passive heatsink</td>
+              </tr>
+              <tr>
+                <td data-i18n="compare_item_frontio">I/O (Front) Summary</td>
+                <td>HDMI x1, USB 3.0 Type-A x2, USB-C x1, RJ45 (1GbE) x1, Audio combo jack x1</td>
+                <td>HDMI x1, USB 3.0 Type-A x2, USB-C x1, RJ45 (1GbE) x1, Audio combo jack x1</td>
+              </tr>
+              <tr>
+                <td data-i18n="compare_item_aihub">Edge AI Models (AI Hub)</td>
+                <td>GenAI x10, Multimodal x4, Computer Vision x100, Audio x4</td>
+                <td>Computer Vision x59 (GenAI/Multimodal/Audio: n/a)</td>
+              </tr>
+              <tr>
+                <td data-i18n="compare_item_cert">Certification</td>
+                <td>CE / FCC Class A</td>
+                <td>CE / FCC Class A</td>
               </tr>
             </tbody>
           </table>
@@ -159,17 +181,21 @@
           </div>
 
           <div class="spec-card">
-            <h3 data-i18n="spec_summary">Spec Summary (Fill In)</h3>
+            <h3 data-i18n="spec_summary">Spec Summary</h3>
             <ul class="spec-list">
-              <li><b data-i18n="spec_ai">AI Accel:</b> <span data-i18n="spec_ai_placeholder">(e.g., NPU TOPS)</span></li>
-              <li><b data-i18n="spec_cpu">CPU:</b> <span data-i18n="spec_cpu_placeholder">(e.g., ARM / x86)</span></li>
-              <li><b data-i18n="spec_mem">Memory:</b> <span data-i18n="spec_mem_placeholder">(e.g., LPDDR5x 8–16GB)</span></li>
-              <li><b data-i18n="spec_storage">Storage:</b> <span data-i18n="spec_storage_placeholder">(e.g., eMMC / NVMe)</span></li>
-              <li><b data-i18n="spec_io">I/O:</b> <span data-i18n="spec_io_placeholder">(e.g., USB, HDMI/DP, RJ-45, Wi-Fi/BT)</span></li>
-              <li><b data-i18n="spec_os">OS:</b> <span data-i18n="spec_os_placeholder">(e.g., Windows / Linux)</span></li>
-              <li><b data-i18n="spec_temp">Operating Temp:</b> <span data-i18n="spec_temp_placeholder">(e.g., -30~85°C)</span></li>
+              <li><b data-i18n="spec_platform">Platform / AI Compute</b>: Dragonwing QCS6490, 12 TOPS</li>
+              <li><b data-i18n="spec_memory">Memory</b>: 16GB LPDDR5</li>
+              <li><b data-i18n="spec_storage">Storage</b>: 128GB UFS</li>
+              <li><b data-i18n="spec_connectivity">Connectivity</b>: Wi-Fi 6</li>
+              <li><b data-i18n="spec_os">Operating System</b>: Windows 11 IoT Enterprise</li>
+              <li><b data-i18n="spec_frontio">I/O (Front)</b>: HDMI x1, USB 3.0 Type-A x2, USB-C x1, RJ45 (up to 1Gbps) x1, Audio combo jack x1</li>
+              <li><b data-i18n="spec_antenna">Antenna Port</b>: x2</li>
+              <li><b data-i18n="spec_button">Button</b>: x1 (Power)</li>
+              <li><b data-i18n="spec_led">LED</b>: x1 (Power)</li>
+              <li><b data-i18n="spec_thermal">Thermal Solution</b>: Passive heatsink</li>
+              <li><b data-i18n="spec_cert">Certification</b>: CE / FCC Class A</li>
             </ul>
-            <p class="muted small" data-i18n="spec_tip">Tip: keep 6–8 fields here—the ones customers ask first.</p>
+            <p class="muted small">(* USB 2.0 Type-A: n/a)</p>
           </div>
         </div>
       </div>
@@ -199,17 +225,22 @@
           </div>
 
           <div class="spec-card">
-            <h3 data-i18n="spec_summary">Spec Summary (Fill In)</h3>
+            <h3 data-i18n="spec_summary">Spec Summary</h3>
             <ul class="spec-list">
-              <li><b data-i18n="spec_ai">AI Accel:</b> <span data-i18n="spec_ai_p01_placeholder">(e.g., NPU TOPS / QNN)</span></li>
-              <li><b data-i18n="spec_cpu">CPU:</b> <span data-i18n="spec_cpu_p01_placeholder">(e.g., higher clocks / more cores)</span></li>
-              <li><b data-i18n="spec_mem">Memory:</b> <span data-i18n="spec_mem_p01_placeholder">(e.g., LPDDR5x 16–32GB)</span></li>
-              <li><b data-i18n="spec_storage">Storage:</b> <span data-i18n="spec_storage_p01_placeholder">(e.g., NVMe 256/512GB)</span></li>
-              <li><b data-i18n="spec_io">I/O:</b> <span data-i18n="spec_io_p01_placeholder">(e.g., more USB / display outs / PCIe expansion)</span></li>
-              <li><b data-i18n="spec_os">OS:</b> <span data-i18n="spec_os_placeholder">(e.g., Windows / Linux)</span></li>
-              <li><b data-i18n="spec_sec">Security:</b> <span data-i18n="spec_sec_placeholder">(e.g., TPM / Secure Boot)</span></li>
+              <li><b data-i18n="spec_platform">Platform / AI Compute</b>: Snapdragon X (X1-26-100), 45 TOPS</li>
+              <li><b data-i18n="spec_memory">Memory</b>: 16GB LPDDR5x</li>
+              <li><b data-i18n="spec_storage">Storage</b>: 256GB SSD</li>
+              <li><b data-i18n="spec_connectivity">Connectivity</b>: Wi-Fi 6</li>
+              <li><b data-i18n="spec_os">Operating System</b>: Windows 11 IoT Enterprise</li>
+              <li><b data-i18n="spec_frontio">I/O (Front)</b>: HDMI x1, USB 3.0 Type-A x2, USB-C x1, RJ45 (up to 1Gbps) x1, Audio combo jack x1</li>
+              <li><b data-i18n="spec_antenna">Antenna Port</b>: x2</li>
+              <li><b data-i18n="spec_button">Button</b>: x1 (Power)</li>
+              <li><b data-i18n="spec_led">LED</b>: x1 (Power)</li>
+              <li><b data-i18n="spec_thermal">Thermal Solution</b>: Active FAN cooler</li>
+              <li><b data-i18n="spec_cert">Certification</b>: CE / FCC Class A</li>
             </ul>
-            <p class="muted small" data-i18n="p01_spec_tip">Tip: place competitor-differentiating highlights here (I/O, TOPS, power, BOM).</p>
+            <p class="muted small">(* USB 2.0 Type-A: n/a)</p>
+            <p class="muted small" data-i18n="p01_spec_tip">Tip: highlight differentiators (I/O, TOPS, power, BOM) for your target customers.</p>
           </div>
         </div>
       </div>
@@ -282,13 +313,11 @@
         <div class="muted small" data-i18n="footer_built">Built with GitHub Pages (Static Site)</div>
       </div>
     </footer>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
   </main>
 
- <script src="/unisom-products/assets/i18n.js"></script>
- <script src="/unisom-products/assets/script.js"></script>
-
+  <script src="/unisom-products/assets/i18n.js?v=6"></script>
+  <script src="/unisom-products/assets/script.js?v=6"></script>
 </body>
 </html>
-
-
-
