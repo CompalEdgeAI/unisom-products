@@ -264,3 +264,4 @@ td{ color: rgba(231,233,238,.88); }
   table{ min-width: 680px; }
   .nav{ gap:8px; }
 }
+.fake-input.multiline{ line-height:1.45; }
