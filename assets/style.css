@@ -1,4 +1,236 @@
-/* Add-ons for language switcher */
+:root{
+  --bg:#0b1020;
+  --panel:#0f172a;
+  --panel2:#111c33;
+  --text:#e7e9ee;
+  --muted:#a9b1c7;
+  --line:rgba(255,255,255,.10);
+  --brand:#5eead4;
+  --brand2:#60a5fa;
+  --shadow: 0 12px 40px rgba(0,0,0,.35);
+  --radius: 18px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(96,165,250,.20), transparent 55%),
+              radial-gradient(900px 500px at 90% 0%, rgba(94,234,212,.18), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{ color: var(--brand2); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.container{
+  width:min(1100px, calc(100% - 32px));
+  margin:0 auto;
+}
+
+.row{ display:flex; align-items:center; justify-content:space-between; gap:18px; }
+
+.site-header{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter: blur(10px);
+  background: rgba(11,16,32,.72);
+  border-bottom:1px solid var(--line);
+}
+
+.brand{ display:flex; flex-direction:column; gap:2px; padding:14px 0; }
+.logo{ font-weight:800; letter-spacing:.2px; font-size:18px; }
+.tagline{ color:var(--muted); font-size:12.5px; }
+
+.nav{
+  display:flex; flex-wrap:wrap;
+  gap:14px;
+}
+.nav a{
+  color:var(--text);
+  font-size:14px;
+  opacity:.88;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid transparent;
+}
+.nav a:hover{
+  opacity:1;
+  border-color: var(--line);
+  background: rgba(255,255,255,.03);
+  text-decoration:none;
+}
+
+.hero{
+  padding:48px 0 28px;
+}
+.hero h1{
+  margin:0 0 10px;
+  font-size: clamp(34px, 4.6vw, 56px);
+  line-height:1.08;
+  letter-spacing:-.6px;
+}
+.lead{
+  margin:0 0 18px;
+  color:var(--muted);
+  font-size:16px;
+  max-width: 72ch;
+}
+
+.cta{ display:flex; gap:12px; flex-wrap:wrap; margin: 14px 0 20px; }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 14px;
+  border-radius: 12px;
+  border:1px solid var(--line);
+  color:var(--text);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+}
+.btn:hover{ background: rgba(255,255,255,.06); text-decoration:none; }
+.btn.primary{
+  border-color: rgba(94,234,212,.35);
+  background: linear-gradient(135deg, rgba(94,234,212,.18), rgba(96,165,250,.14));
+}
+
+.hero-cards{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:14px;
+}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  padding:16px 16px;
+  box-shadow: var(--shadow);
+}
+.card h3{ margin:0 0 6px; font-size:18px; }
+.card p{ margin:0 0 10px; color:var(--muted); }
+
+.bullets{ margin:0; padding-left:18px; color:var(--text); }
+.bullets li{ margin:6px 0; color: rgba(231,233,238,.92); }
+
+.link{ display:inline-block; margin-top:10px; font-weight:700; }
+
+.section{ padding:44px 0; }
+.section.alt{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.section-head h2{ margin:0 0 6px; font-size:28px; }
+.muted{ color:var(--muted); }
+.small{ font-size:12.5px; }
+
+.table-wrap{
+  margin-top:14px;
+  overflow:auto;
+  border-radius: var(--radius);
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width: 720px;
+}
+th, td{
+  text-align:left;
+  padding:12px 12px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+th{
+  font-size:13px;
+  color: rgba(231,233,238,.9);
+  background: rgba(255,255,255,.03);
+}
+td{ color: rgba(231,233,238,.88); }
+
+.split{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:16px;
+  align-items:start;
+}
+.lead2{ margin-top:8px; color:var(--muted); }
+
+.pill-row{ display:flex; flex-wrap:wrap; gap:10px; margin: 10px 0 14px; }
+.pill{
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  font-size:12.5px;
+  color: rgba(231,233,238,.92);
+}
+
+.spec-card{
+  background: linear-gradient(180deg, rgba(96,165,250,.10), rgba(94,234,212,.06));
+  border:1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+}
+.spec-card h3{ margin:0 0 10px; font-size:16px; }
+.spec-list{ list-style:none; padding:0; margin:0; }
+.spec-list li{ padding:10px 0; border-bottom:1px solid rgba(255,255,255,.10); }
+.spec-list li:last-child{ border-bottom:none; }
+.spec-list b{ color: rgba(231,233,238,.95); }
+
+.grid3{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.mini{ margin-top:10px; font-size:12.5px; color: rgba(169,177,199,.95); }
+
+.contact{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap:16px;
+}
+.form{
+  background: rgba(255,255,255,.02);
+  border:1px solid var(--line);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+}
+.field{ display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+.field label{ font-size:12.5px; color: rgba(231,233,238,.9); }
+.fake-input{
+  padding:10px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: rgba(231,233,238,.92);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:13px;
+}
+
+.footer{
+  border-top:1px solid var(--line);
+  padding:18px 0;
+  color: rgba(231,233,238,.85);
+}
+.footer .muted{ color: rgba(169,177,199,.9); }
+
+@media (max-width: 900px){
+  .hero-cards{ grid-template-columns: 1fr; }
+  .split, .contact{ grid-template-columns: 1fr; }
+  table{ min-width: 640px; }
+}
+
+/* --- Add-ons for language switcher --- */
 .right-tools{ display:flex; align-items:center; gap:12px; }
 .lang-switch select{
   padding:8px 10px;
