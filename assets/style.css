@@ -1,3 +1,4 @@
+/* UniSOM Products - GitHub Pages (static) */
 :root{
   --bg:#0b1020;
   --panel:#0f172a;
@@ -32,6 +33,7 @@ a:hover{ text-decoration:underline; }
 }
 
 .row{ display:flex; align-items:center; justify-content:space-between; gap:18px; }
+.right-tools{ display:flex; align-items:center; gap:12px; }
 
 .site-header{
   position:sticky; top:0; z-index:10;
@@ -63,6 +65,19 @@ a:hover{ text-decoration:underline; }
   text-decoration:none;
 }
 
+.lang-switch select{
+  padding:8px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: #e7e9ee;
+}
+.lang-switch select:focus{ outline: 2px solid rgba(94,234,212,.35); outline-offset: 2px; }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); border:0;
+}
+
 .hero{
   padding:48px 0 28px;
 }
@@ -91,6 +106,7 @@ a:hover{ text-decoration:underline; }
   text-decoration:none;
   font-weight:600;
   font-size:14px;
+  cursor:pointer;
 }
 .btn:hover{ background: rgba(255,255,255,.06); text-decoration:none; }
 .btn.primary{
@@ -139,7 +155,7 @@ a:hover{ text-decoration:underline; }
 table{
   width:100%;
   border-collapse:collapse;
-  min-width: 720px;
+  min-width: 760px;
 }
 th, td{
   text-align:left;
@@ -217,6 +233,24 @@ td{ color: rgba(231,233,238,.88); }
   font-size:13px;
 }
 
+.toast{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(231,233,238,.95);
+  padding: 10px 12px;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+  font-size: 13px;
+}
+.toast.show{ opacity: 1; }
+
 .footer{
   border-top:1px solid var(--line);
   padding:18px 0;
@@ -227,20 +261,6 @@ td{ color: rgba(231,233,238,.88); }
 @media (max-width: 900px){
   .hero-cards{ grid-template-columns: 1fr; }
   .split, .contact{ grid-template-columns: 1fr; }
-  table{ min-width: 640px; }
-}
-
-/* --- Add-ons for language switcher --- */
-.right-tools{ display:flex; align-items:center; gap:12px; }
-.lang-switch select{
-  padding:8px 10px;
-  border-radius: 999px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.04);
-  color: #e7e9ee;
-}
-.lang-switch select:focus{ outline: 2px solid rgba(94,234,212,.35); outline-offset: 2px; }
-.sr-only{
-  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0,0,0,0); border:0;
+  table{ min-width: 680px; }
+  .nav{ gap:8px; }
 }
