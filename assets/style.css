@@ -71,8 +71,24 @@ a:hover{ text-decoration:underline; }
   border:1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.04);
   color: #e7e9ee;
+}
+/* Ask browser to render form controls in dark mode */
+.lang-switch select{
   color-scheme: dark;
 }
+
+/* Make native dropdown readable on Windows/Chrome */
+.lang-switch select option{
+  background: #ffffff;
+  color: #111827; /* near-black */
+}
+
+/* Selected option highlight */
+.lang-switch select option:checked{
+  background: #2563eb;
+  color: #ffffff;
+}
+
 .lang-switch select:focus{ outline: 2px solid rgba(94,234,212,.35); outline-offset: 2px; }
 .sr-only{
   position:absolute; width:1px; height:1px; padding:0; margin:-1px;
@@ -266,4 +282,5 @@ td{ color: rgba(231,233,238,.88); }
   .nav{ gap:8px; }
 }
 .fake-input.multiline{ line-height:1.45; }
+
 
