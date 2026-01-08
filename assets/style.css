@@ -71,6 +71,7 @@ a:hover{ text-decoration:underline; }
   border:1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.04);
   color: #e7e9ee;
+  color-scheme: dark;
 }
 .lang-switch select:focus{ outline: 2px solid rgba(94,234,212,.35); outline-offset: 2px; }
 .sr-only{
@@ -265,3 +266,4 @@ td{ color: rgba(231,233,238,.88); }
   .nav{ gap:8px; }
 }
 .fake-input.multiline{ line-height:1.45; }
+
