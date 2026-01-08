@@ -1,0 +1,14 @@
+/* Add-ons for language switcher */
+.right-tools{ display:flex; align-items:center; gap:12px; }
+.lang-switch select{
+  padding:8px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: #e7e9ee;
+}
+.lang-switch select:focus{ outline: 2px solid rgba(94,234,212,.35); outline-offset: 2px; }
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); border:0;
+}
