@@ -1,80 +1,45 @@
-// assets/script.js
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// TODO: 換成你的真實窗口信箱
-const CONTACT_EMAIL = "sales@your-company.com";
-document.getElementById("contactEmail").textContent = CONTACT_EMAIL;
-
-function copyEmail(e){
-  e.preventDefault();
-  navigator.clipboard.writeText(CONTACT_EMAIL).then(() => {
-    alert("Copied: " + CONTACT_EMAIL);
-  }).catch(() => {
-    alert("Copy failed. Please copy manually: " + CONTACT_EMAIL);
-  });
-}
-window.copyEmail = copyEmail;
-
-function getLangFromQuery(){
-  const p = new URLSearchParams(window.location.search);
-  const lang = p.get("lang");
-  return lang && window.I18N[lang] ? lang : null;
+// UniSOM Products main script (static)
+function showToast(message) {
+  const t = document.getElementById("toast");
+  if (!t) return;
+  t.textContent = message;
+  t.classList.add("show");
+  window.clearTimeout(showToast._timer);
+  showToast._timer = window.setTimeout(() => t.classList.remove("show"), 1500);
 }
 
-function setHtmlLang(lang){
-  document.documentElement.setAttribute("lang", lang || "en");
+function copyEmail(e) {
+  if (e) e.preventDefault();
+  const el = document.getElementById("contactEmail");
+  const email = el ? (el.textContent || "").trim() : "";
+  if (!email) return;
+
+  const lang = localStorage.getItem("lang") || "en";
+  const dict = (window.I18N && window.I18N[lang]) ? window.I18N[lang] : (window.I18N ? window.I18N.en : null);
+  const msg = dict && dict.toast_copied ? dict.toast_copied : "Copied to clipboard";
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(() => showToast(msg)).catch(() => showToast(msg));
+  } else {
+    // Fallback
+    const ta = document.createElement("textarea");
+    ta.value = email;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (_) {}
+    document.body.removeChild(ta);
+    showToast(msg);
+  }
 }
 
-function applyI18n(lang){
-  const dict = window.I18N[lang] || window.I18N.en;
+document.addEventListener("DOMContentLoaded", () => {
+  // Year
+  const y = document.getElementById("year");
+  if (y) y.textContent = String(new Date().getFullYear());
 
-  // text nodes
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (dict[key]) el.textContent = dict[key];
-  });
+  // Init i18n (from i18n.js)
+  if (typeof initI18n === "function") initI18n();
 
-  // html nodes (allow <br/> etc.)
-  document.querySelectorAll("[data-i18n-html]").forEach(el => {
-    const key = el.getAttribute("data-i18n-html");
-    if (dict[key]) el.innerHTML = dict[key];
-  });
-
-  // update title/description per language (optional but nice)
-  const titleMap = {
-    en: "CompalEdgeAI | UniSOM-S01 & UniSOM-P01",
-    "zh-Hant": "CompalEdgeAI｜UniSOM-S01 與 UniSOM-P01",
-    "zh-Hans": "CompalEdgeAI｜UniSOM-S01 与 UniSOM-P01",
-    ja: "CompalEdgeAI｜UniSOM-S01 & UniSOM-P01",
-    ko: "CompalEdgeAI | UniSOM-S01 & UniSOM-P01",
-    de: "CompalEdgeAI | UniSOM-S01 & UniSOM-P01",
-    fr: "CompalEdgeAI | UniSOM-S01 & UniSOM-P01"
-  };
-  document.title = titleMap[lang] || titleMap.en;
-
-  setHtmlLang(lang);
-}
-
-(function init(){
-  const select = document.getElementById("langSelect");
-
-  // Priority: URL ?lang= > localStorage > default en
-  const queryLang = getLangFromQuery();
-  const savedLang = localStorage.getItem("site_lang");
-  const initialLang = queryLang || (savedLang && window.I18N[savedLang] ? savedLang : "en");
-
-  select.value = initialLang;
-  applyI18n(initialLang);
-
-  // Change handler
-  select.addEventListener("change", () => {
-    const lang = select.value;
-    localStorage.setItem("site_lang", lang);
-    applyI18n(lang);
-
-    // update URL without reload
-    const url = new URL(window.location.href);
-    url.searchParams.set("lang", lang);
-    window.history.replaceState({}, "", url.toString());
-  });
-})();
+  // Expose for inline onclick
+  window.copyEmail = copyEmail;
+});
