@@ -26,7 +26,7 @@ function copyEmail(e) {
     ta.value = email;
     document.body.appendChild(ta);
     ta.select();
-    try { document.execCommand("copy"); } catch (_) {}
+    try { document.execCommand("copy"); } catch (_) { }
     document.body.removeChild(ta);
     showToast(msg);
   }
@@ -37,8 +37,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const y = document.getElementById("year");
   if (y) y.textContent = String(new Date().getFullYear());
 
+
   // Init i18n (from i18n.js)
   if (typeof initI18n === "function") initI18n();
+
+  // Mobile Menu Toggle
+  const toggle = document.getElementById("mobileToggle");
+  const menu = document.getElementById("mobileMenu");
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("active");
+      menu.classList.toggle("active");
+    });
+
+
+    // Close menu when clicking a link
+    menu.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => {
+        toggle.classList.remove("active");
+        menu.classList.remove("active");
+      });
+    });
+  }
+
+  // Scroll Animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        // Optional: Stop observing once revealed
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
   // Expose for inline onclick
   window.copyEmail = copyEmail;
